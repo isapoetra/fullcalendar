@@ -47,7 +47,8 @@ concat_css = \
 			| ${DATE_SED} \
 			> "$(2)"; \
 	fi
-	
+copy_resource=\
+	@cp -r $(1) $(2)
 zip:
 	@rm -rf ${BUILD_DIR}/fullcalendar
 	@rm -rf ${BUILD_DIR}/fullcalendar-*
@@ -56,6 +57,7 @@ zip:
 	@echo "building core..."
 	@$(call concat_js,${SRC_DIR},"${BUILD_DIR}/fullcalendar/fullcalendar/fullcalendar.js")
 	@$(call concat_css,${SRC_DIR},"${BUILD_DIR}/fullcalendar/fullcalendar/fullcalendar.css")
+	@$(call copy_resource,${SRC_DIR}/images/,${BUILD_DIR}/fullcalendar/fullcalendar/images)
 	@cat "${SRC_DIR}/common/print.css" \
 		| ${VER_SED} \
 		| ${DATE_SED} \

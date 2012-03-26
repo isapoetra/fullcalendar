@@ -1,6 +1,11 @@
 
 var defaults = {
 
+	EventConfig:{
+		aedurl:null
+	},
+	customButtons:{
+	},
 	// display
 	defaultView: 'month',
 	aspectRatio: 1.35,
